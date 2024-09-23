@@ -58,7 +58,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                     children: [
                       Image.network(
                         movie.posterUrl,
-                        height: 200,
+                        height: 220,
                         width: double.infinity,
                         fit: BoxFit.cover,
                       ),
