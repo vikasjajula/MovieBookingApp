@@ -9,10 +9,10 @@ export const addArtist = async (req, res, next) => {
     // if (!req.headers.authorization) {
     //     return res.status(401).json({ message: "Authorization header is missing" });
     // }
-    const extractedToken = req.headers.authorization.split(" ")[1];
-    if (!extractedToken || extractedToken.trim() === "") {
-        return res.status(404).json({ message: "Token Not Found" });
-    }
+    // const extractedToken = req.headers.authorization.split(" ")[1];
+    // if (!extractedToken || extractedToken.trim() === "") {
+    //     return res.status(404).json({ message: "Token Not Found" });
+    // }
 
     const { name, alsoKnownAs, occupation, born, birthplace, about, earlyLife, actingCareer, awards, imageUrl } = req.body;
     console.log(req.body);
@@ -58,8 +58,8 @@ export const getAllArtists = async (req, res, next) => {
 };
 
 export const getArtistsByIds = async (req, res, next) => {
-    console.log(req)
     const { ids } = req.body;
+    console.log(ids);
     if (!ids || !Array.isArray(ids) || ids.length === 0) {
         return res.status(422).json({ message: "Invalid input, ids must be a non-empty array" });
     }

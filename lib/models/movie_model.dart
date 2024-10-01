@@ -10,6 +10,11 @@ class Movie {
   final String certificationRating;
   final List<String> displayFormats;
   final bool featured;
+  final List<String> actors; // Assuming these are ObjectIds as Strings
+  final List<String> crew; // Assuming these are ObjectIds as Strings
+  final List<String> theaters; // Assuming these are ObjectIds as Strings
+  final List<String> bookings; // Assuming these are ObjectIds as Strings
+  final String admin; // Assuming this is an ObjectId as String
 
   Movie({
     required this.id,
@@ -23,6 +28,11 @@ class Movie {
     required this.certificationRating,
     required this.displayFormats,
     required this.featured,
+    required this.actors,
+    required this.crew,
+    required this.theaters,
+    required this.bookings,
+    required this.admin,
   });
 
   factory Movie.fromJson(Map<String, dynamic> json) {
@@ -38,6 +48,11 @@ class Movie {
       certificationRating: json['certificationRating'],
       displayFormats: List<String>.from(json['displayFormats']),
       featured: json['featured'] ?? false,
+      actors: List<String>.from(json['actors']), // Added actors
+      crew: List<String>.from(json['crew']), // Added crew
+      theaters: List<String>.from(json['theaters']), // Added theaters
+      bookings: List<String>.from(json['bookings']), // Added bookings
+      admin: json['admin'], // Added admin
     );
   }
 }
