@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'movie_model.dart';
-import 'movie_service.dart';
+import '../models/movie_model.dart';
+import '../services/movie_service.dart';
 
 class MovieDetails extends StatefulWidget {
   const MovieDetails({Key? key}) : super(key: key);
