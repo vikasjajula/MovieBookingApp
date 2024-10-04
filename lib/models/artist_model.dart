@@ -43,13 +43,14 @@ class Artist {
     );
   }
 
+  // Convert the Artist object to JSON
   Map<String, dynamic> toJson() {
     return {
       '_id': id,
       'name': name,
       'alsoKnownAs': alsoKnownAs,
       'occupation': occupation,
-      'born': born, // Keep as String
+      'born': born,
       'birthplace': birthplace,
       'about': about,
       'earlyLife': earlyLife,
