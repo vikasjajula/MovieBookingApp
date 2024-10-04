@@ -59,7 +59,6 @@ export const getAllArtists = async (req, res, next) => {
 
 export const getArtistsByIds = async (req, res, next) => {
     const { ids } = req.body;
-    console.log(ids);
     if (!ids || !Array.isArray(ids) || ids.length === 0) {
         return res.status(422).json({ message: "Invalid input, ids must be a non-empty array" });
     }

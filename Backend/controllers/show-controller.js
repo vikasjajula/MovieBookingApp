@@ -50,10 +50,13 @@ export const AddShow = async (req, res) => {
 
 export const getShows = async (req, res) => {
   try {
-    const { movieId, date } = req.body; // Get movieId and date from request body
-
+    var { movieId, date } = req.body; // Get movieId and date from request body
+    console.log(movieId);
+    console.log(date);
+    date ='2024-09-09'
     // Format the date to ensure proper comparison, assuming the backend date format is 'YYYY-MM-DD'
     const formattedDate = new Date(date).toISOString().split('T')[0]; // Convert date to 'YYYY-MM-DD'
+    console.log(formattedDate);
 
     let filter = { date: { $gte: formattedDate } }; // Filter for shows on or after the specified date
 
@@ -64,6 +67,7 @@ export const getShows = async (req, res) => {
 
     // Fetch shows based on the filter
     const shows = await Show.find(filter);
+    console.log(shows);
 
     // Fetch theater details for each show
     const showsWithTheaterDetails = await Promise.all(
@@ -82,6 +86,7 @@ export const getShows = async (req, res) => {
         };
       })
     );
+    console.log(showsWithTheaterDetails);
 
     res.status(200).json(showsWithTheaterDetails);
   } catch (error) {
